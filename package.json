@@ -9,9 +9,8 @@
     "test:darwin:linux": "jasmine test/**/*.js",
     "test-keyboard": "node test/keyboard.js",
     "test:win32": "jasmine test/**/*.js",
-    "install": "prebuild-install || node-gyp rebuild",
-    "install-debug": "prebuild-install || node-gyp rebuild --debug",
-    "prebuild": "prebuild --all"
+    "install": "node-gyp rebuild",
+    "install-debug": "node-gyp rebuild --debug"
   },
   "repository": {
     "type": "git",
@@ -42,12 +41,10 @@
   },
   "homepage": "https://github.com/octalmage/robotjs",
   "dependencies": {
-    "nan": "^2.14.2",
-    "prebuild-install": "7.0.1"
+    "nan": "^2.14.2"
   },
   "devDependencies": {
     "jasmine": "^2.99.0",
-    "prebuild": "^7.2.2",
     "run-script-os": "1.1.6",
     "tape": "^4.8.0"
   }

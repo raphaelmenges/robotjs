@@ -16,9 +16,6 @@
   "author": "Jason Stallings",
   "license": "MIT",
   "homepage": "https://github.com/octalmage/robotjs",
-  "dependencies": {
-    "nan": "^2.14.2"
-  },
   "devDependencies": {
     "@types/node": "16.11.7",
     "cmake-js": "6.3.2",

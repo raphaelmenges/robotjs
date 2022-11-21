@@ -5,47 +5,22 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "run-script-os",
-    "test:darwin:linux": "jasmine test/**/*.js",
-    "test-keyboard": "node test/keyboard.js",
-    "test:win32": "jasmine test/**/*.js",
-    "install": "node-gyp rebuild",
-    "install-debug": "node-gyp rebuild --debug"
+    "prepare": "npm run build",
+    "build": "npx cmake-js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/octalmage/robotjs.git"
   },
-  "keywords": [
-    "Automation",
-    "GUI",
-    "mouse",
-    "keyboard",
-    "screenshot",
-    "image",
-    "pixel",
-    "desktop",
-    "robotjs",
-    "screen",
-    "recognition",
-    "autohotkey",
-    "machine",
-    "learning",
-    "color"
-  ],
   "author": "Jason Stallings",
   "license": "MIT",
-  "gypfile": true,
-  "bugs": {
-    "url": "https://github.com/octalmage/robotjs/issues"
-  },
   "homepage": "https://github.com/octalmage/robotjs",
   "dependencies": {
     "nan": "^2.14.2"
   },
   "devDependencies": {
-    "jasmine": "^2.99.0",
-    "run-script-os": "1.1.6",
-    "tape": "^4.8.0"
+    "@types/node": "16.11.7",
+    "cmake-js": "6.3.2",
+    "node-addon-api": "5.0.0"
   }
 }

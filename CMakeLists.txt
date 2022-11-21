@@ -7,17 +7,16 @@ add_definitions(-DNDEBUG) # Disable asserts in release mode.
 set(CMAKE_CXX_STANDARD 17 CACHE INTERNAL "C++ version selection") # Or 11, 14, 17, 20.
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # Optional, ensure standard is supported.
 set(CMAKE_CXX_EXTENSIONS OFF) # Optional, keep compiler extensions off.
-set (CMAKE_CXX_FLAGS "-Wall")
-set (CMAKE_CXX_FLAGS "-Wparentheses")
-set (CMAKE_CXX_FLAGS "-Winline")
-set (CMAKE_CXX_FLAGS "-Wbad-function-cast")
-set (CMAKE_CXX_FLAGS "-Wdisabled-optimization")
+set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wparentheses")
+set(CMAKE_CXX_FLAGS "-Winline")
+set(CMAKE_CXX_FLAGS "-Wbad-function-cast")
+set(CMAKE_CXX_FLAGS "-Wdisabled-optimization")
 
 if(WIN32)
   set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT") # Link statically to MSVC runtime library.
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd") # Link statically to MSVC runtime library.
 endif()
-
 
 # Source code.
 include_directories(${CMAKE_JS_INC})

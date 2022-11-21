@@ -1,0 +1,8 @@
+build
+!build/Release/robotjs.node
+node_modules
+src
+.gitignore
+package-lock.json
+CHANGELOG.md
+CMakeLists.txt

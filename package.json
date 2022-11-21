@@ -6,7 +6,8 @@
   "typings": "index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "npx cmake-js"
+    "build": "npx cmake-js",
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",

@@ -41,13 +41,29 @@ MMBitmapRef copyMMBitmapFromDisplayInRect(MMRect rect)
 	buffer = malloc(bufferSize);
 
 	CFDataGetBytes(imageData, CFRangeMake(0,bufferSize), buffer);
+	
+	// Appears like Apple provides you with extra pixels per row
+	// and at the end of the buffer to make each row and the whole
+	// buffer (!) divisable by 32 for further performance purposes.
+	// Inefficient but working hotfix to get rid of theses dead pixels below.
+	// See for further explanation: https://stackoverflow.com/a/25706554
+	size_t w = CGImageGetWidth(image);
+	size_t h = CGImageGetHeight(image);
+	size_t b = CGImageGetBitsPerPixel(image) / 8;
+	size_t br = CGImageGetBytesPerRow(image);
+	size_t nBufferSize = w * h * b;
+	uint8_t *nBuffer = malloc(nBufferSize);
+	for (int y = 0; y < h; ++y) {
+		memcpy(nBuffer + (y * w * b), buffer + (y * br), w * b);
+	}
+  free(buffer);
 
-	bitmap = createMMBitmap(buffer,
-		CGImageGetWidth(image),
-		CGImageGetHeight(image),
-		CGImageGetBytesPerRow(image),
-		CGImageGetBitsPerPixel(image),
-		CGImageGetBitsPerPixel(image) / 8);
+	bitmap = createMMBitmap(nBuffer,
+		w,
+		h,
+		b*w,
+		b*8,
+		b);
 
 	CFRelease(imageData);
 

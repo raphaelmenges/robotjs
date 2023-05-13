@@ -19,6 +19,6 @@
   "devDependencies": {
     "@types/node": "18.13.0",
     "cmake-js": "7.2.0",
-    "node-addon-api": "6.0.0"
+    "node-addon-api": "6.1.0"
   }
 }

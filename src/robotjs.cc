@@ -1,4 +1,5 @@
 #define NAPI_VERSION 4
+#define NODE_API_NO_EXTERNAL_BUFFERS_ALLOWED // https://github.com/nodejs/node-addon-api/blob/main/doc/external_buffer.md
 #include <napi.h>
 #include <vector>
 #include "screen.h"
@@ -51,7 +52,7 @@ Napi::Value CaptureScreen(const Napi::CallbackInfo& info)
   MMBitmapRef bitmap = copyMMBitmapFromDisplayInRect(MMRectMake(x, y, w, h));
 
   uint32_t bufferSize = bitmap->bytewidth * bitmap->height;
-  auto buffer = Napi::Buffer<char>::New(info.Env(), (char*)bitmap->imageBuffer, bufferSize, myDestroyMMBitmapBuffer);
+  auto buffer = Napi::Buffer<char>::NewOrCopy(info.Env(), (char*)bitmap->imageBuffer, bufferSize, myDestroyMMBitmapBuffer);
 
   Napi::Object obj = Napi::Object::New(info.Env());
   obj.Set("width", bitmap->width);

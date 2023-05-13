@@ -22,13 +22,8 @@ endif()
 include_directories(${CMAKE_JS_INC})
 set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/robotjs.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/deadbeef_rand.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/mouse.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/keypress.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/keycode.c
   ${CMAKE_CURRENT_SOURCE_DIR}/src/screen.c
   ${CMAKE_CURRENT_SOURCE_DIR}/src/screengrab.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/snprintf.c
   ${CMAKE_CURRENT_SOURCE_DIR}/src/MMBitmap.c
 )
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})

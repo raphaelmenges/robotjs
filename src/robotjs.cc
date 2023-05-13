@@ -5,12 +5,6 @@
 #include "screen.h"
 #include "screengrab.h"
 #include "MMBitmap.h"
-#include "snprintf.h"
-#include "microsleep.h"
-#if defined(USE_X11)
-  #include "xdisplay.h"
-#endif
-
 void myDestroyMMBitmapBuffer(Napi::Env env, char * bitmapBuffer)
   {
     if (bitmapBuffer != NULL)

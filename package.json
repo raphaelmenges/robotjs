@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/octalmage/robotjs.git"
   },
-  "author": "Jason Stallings",
+  "author": "Jason Stallings, Raphael Menges",
   "license": "MIT",
   "homepage": "https://github.com/octalmage/robotjs",
   "devDependencies": {
